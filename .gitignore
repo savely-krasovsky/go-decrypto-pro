@@ -1,0 +1,5 @@
+# Goland
+.idea
+
+# Go modules
+go.sum
