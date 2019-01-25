@@ -11,8 +11,8 @@ type Header struct {
 			Attributes                  asn1.BitString
 			DH                          asn1.ObjectIdentifier `asn1:"explicit,tag:0"`
 			PrimaryPrivateKeyParameters struct {
-				Hash       asn1.ObjectIdentifier
-				Encryption asn1.ObjectIdentifier
+				Curve asn1.ObjectIdentifier
+				Hash  asn1.ObjectIdentifier
 			}
 		}
 		Unknown3             asn1.RawValue `asn1:"optional"`

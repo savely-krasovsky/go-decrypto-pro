@@ -27,10 +27,10 @@ func MarshalPrivateKey(key *gost3410.PrivateKey) ([]byte, error) {
 
 	privKey.Version = 0
 	privKey.Algorithm = algorithmIdentifier{
-		Algorithm: asn1.ObjectIdentifier{1, 2, 643, 2, 2, 19},
+		Algorithm: OID_CP_GOST_R3410EL,
 		Parameters: parameters{
-			Curve: asn1.ObjectIdentifier{1, 2, 643, 2, 2, 36, 0},
-			Hash:  asn1.ObjectIdentifier{1, 2, 643, 2, 2, 30, 1},
+			Curve: OID_GostR3410_2001_CryptoPro_XchA_ParamSet,
+			Hash:  OID_GostR3411_94_CryptoProParamSet,
 		},
 	}
 

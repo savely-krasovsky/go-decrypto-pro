@@ -44,6 +44,7 @@ func main() {
 		panic(err)
 	}
 
+	// Get derived key from CPKDF
 	derivedKey, err := util.DeriveKey(gost341194.New(&gost28147.GostR3411_94_CryptoProParamSet), masks[1], []byte(passphrase))
 	if err != nil {
 		panic(err)
@@ -94,8 +95,9 @@ func main() {
 
 	//fmt.Println(privateKey.Raw())
 	//fmt.Println(publicKey.Raw())
+	//fmt.Println(header.KeyContainerContent.Unknown3.Bytes)
 
-	if bytes.HasPrefix(publicKey.Raw(), header.KeyContainerContent.BeginningOfPublicKey.Bytes) {
+	if len(header.KeyContainerContent.BeginningOfPublicKey.Bytes) > 0 && bytes.HasPrefix(publicKey.Raw(), header.KeyContainerContent.BeginningOfPublicKey.Bytes) {
 		b, err := pkcs8.MarshalPrivateKey(privateKey)
 		if err != nil {
 			panic(err)
